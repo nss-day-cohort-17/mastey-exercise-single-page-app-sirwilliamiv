@@ -47,32 +47,39 @@ function originalStyling() {
 
 // THis will put content into html once  html is built up through loop
 function populatePage (changethisname) {
+  var createTheCard="";
   // Loop over the inventory and populate the page
-for(var i = 0; i < changethisnamed.cars.length; i++) {
-        var createTheCard = [i];
-        console.log("this is the i" ,createTheCard)
-/
-    [i].make  .model  .price .description
-            // createTheCard =+ `<div class="card">
-            //                     <img class="card-img-top" src="..." alt="Card image cap">
-            //                       <div class="card-block">
-            //                          <h4 class="card-title">${inventory[0].cars[i].make}</h4>
-            //                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            //       <a href="#" class="btn btn-primary">edit description?</a>
-            //       </div>
-            //   </div>`
+    for(var i = 0; i < changethisname.cars.length; i++) {
 
-// set elements to innerhtml  by callback   function sendToTheDom(createTheCard)
-//
-}
-  // grab conent from json and  insert into html
+        // console.log("this is the i" ,createTheCard)
+// /
+//     [i].make  .model  .price .description
+            createTheCard += `<div class="card">
+                                <img class="card-img-top" src="#" alt="Card image cap">
+                                  <div class="card-block">
+                                     <h4 class="card-title">${changethisname.cars[i].make}</h4>
+                                     <h5 class="card-title">${changethisname.cars[i].model}</h5>
+                                     <h4 class="card-title">${changethisname.cars[i].price}</h4>
 
+
+                                  <p class="card-text">${changethisname.cars[i].description}</p>
+                  <a href="#" class="btn btn-primary">edit description?</a>
+                  </div>
+              </div>`
+
+
+    } //-------------endforloop
+
+sendToTheDom(createTheCard)
+console.log(createTheCard)
   // Now that the DOM is loaded, establish all the event listeners needed
   // activateEvents();
 }
 
- function sendToTheDom(builtHTMLFromPopulatePage) {
-  document.getElementByID('NAME OF ELEMENT TO SEND TO').innerHTML = builtHTMLFromPopulatePage
+function sendToTheDom(builtHTMLFromPopulatePage) {
+
+  console.log(builtHTMLFromPopulatePage)
+      document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
  }
 
 // Load the inventory and send a callback function to be
