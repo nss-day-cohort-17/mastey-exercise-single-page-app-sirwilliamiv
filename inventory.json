@@ -6,6 +6,34 @@
       "year": "2006",
       "price": "8999",
       "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+    },
+     {
+      "make": "Ferarri",
+      "model": "360 Modena",
+      "year": "2010",
+      "price": "288999",
+      "description": " miles on it. Leather seats, power everything."
+    },
+     {
+      "make": "Dodge",
+      "model": "Ram",
+      "year": "2000",
+      "price": "98999",
+      "description": "This is amiles on it. Leather seats, power everything."
+    },
+     {
+      "make": "Tesla",
+      "model": "zippy",
+      "year": "2016",
+      "price": "88999",
+      "description": "This is an immacu00 miles on it. Leather seats, power everything."
+    },
+     {
+      "make": "Ford",
+      "model": "Bronco",
+      "year": "1966",
+      "price": "38999",
+      "description": "Thismiles on it. Leather seats, no power everything."
     }
   ]
 }
