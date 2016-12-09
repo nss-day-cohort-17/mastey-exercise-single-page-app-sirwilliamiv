@@ -9,6 +9,64 @@
 
 console.log("hey javascript")
 
+
+
+
+// I will hold the json file native js object CHECKED
+var inventory = [];
+
+
+
+loadInventory();
+
+// function list
+function activateEvents() {}
+// i will reset styling  AFTER i'm not clicked on
+function originalStyling() {
+
+//   if focus = false {
+//     set style to original
+//   }
+ }
+
+// You should add a function that changes the thickness of the
+// border of a car element, and changes its background color.
+// The function must accept two arguments: THESE MAY NEED TO BE GLOBAL VARIABLES
+// A car DOM element that was clicked on.
+// A color name of your choice (see behavior requirement 5 above).
+ function changeBorderAndBackground() {
+
+ }
+
+
+
+// THis will put content into html once  html is built up through loop
+function populatePage (inventory) {
+  // Loop over the inventory and populate the page
+
+  // grab conent from json and  insert into html
+
+  // Now that the DOM is loaded, establish all the event listeners needed
+  activateEvents();
+}
+
+// Load the inventory and send a callback function to be
+// invoked after the process is complete
+
+function loadInventory (callback) {
+  var inventoryLoader = new XMLHttpRequest();
+  inventoryLoader.addEventListener("load", function (e) {
+      inventory = JSON.parse(e.target.responseText)
+      console.log(inventory)
+
+
+
+
+    });
+  inventoryLoader.open('GET', 'inventory.json')
+  inventoryLoader.send()
+}
+
 // Create an array of cars in the inventory.json file
 // (see example structure below). Put at least three cars in the array.
 //
