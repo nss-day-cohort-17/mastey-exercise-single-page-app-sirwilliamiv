@@ -46,14 +46,34 @@ function originalStyling() {
 
 
 // THis will put content into html once  html is built up through loop
-function populatePage (inventory) {
+function populatePage (changethisname) {
   // Loop over the inventory and populate the page
+for(var i = 0; i < changethisnamed.cars.length; i++) {
+        var createTheCard = [i];
+        console.log("this is the i" ,createTheCard)
+/
+    [i].make  .model  .price .description
+            // createTheCard =+ `<div class="card">
+            //                     <img class="card-img-top" src="..." alt="Card image cap">
+            //                       <div class="card-block">
+            //                          <h4 class="card-title">${inventory[0].cars[i].make}</h4>
+            //                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            //       <a href="#" class="btn btn-primary">edit description?</a>
+            //       </div>
+            //   </div>`
 
+// set elements to innerhtml  by callback   function sendToTheDom(createTheCard)
+//
+}
   // grab conent from json and  insert into html
 
   // Now that the DOM is loaded, establish all the event listeners needed
-  activateEvents();
+  // activateEvents();
 }
+
+ function sendToTheDom(builtHTMLFromPopulatePage) {
+  document.getElementByID('NAME OF ELEMENT TO SEND TO').innerHTML = builtHTMLFromPopulatePage
+ }
 
 // Load the inventory and send a callback function to be
 // invoked after the process is complete
@@ -63,6 +83,8 @@ function loadInventory (callback) {
   inventoryLoader.addEventListener("load", function (e) {
       inventory = JSON.parse(e.target.responseText)
       console.log(inventory)
+
+      populatePage(inventory)
 
 
 
