@@ -33,9 +33,14 @@ function originalStyling() {
 // border of a car element, and changes its background color.
 // The function must accept two arguments: THESE MAY NEED TO BE GLOBAL VARIABLES
 // A car DOM element that was clicked on.
+// var carClickedOn = document.target.this.querySelector("#dropDown");
 // A color name of your choice (see behavior requirement 5 above).
+//
  function changeBorderAndBackground() {
-
+// addClass("yourNewClassgoeshere")
+// var theDropDown = document.querySelector("#dropDown");
+// theDropDown.classList.add("disableMenu");
+// theDropDown.classList.remove("disableMenu");
  }
 
 
