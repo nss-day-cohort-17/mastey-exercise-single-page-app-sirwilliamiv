@@ -1,3 +1,20 @@
 body {
   background-color: lightgray;
 }
+.navbar-form {
+
+  min-width: 20%;
+}
+
+
+input,
+select,
+textarea {
+   min-width: 450px;
+   margin-bottom: 1rem;
+}
+
+.card-img-top {
+
+  max-width: 100%;
+}
