@@ -55,7 +55,7 @@ function populatePage (changethisname) {
 // /
 //     [i].make  .model  .price .description
             createTheCard += `<div class="card col-md-4">
-                                <img class="card-img-top" src="#" alt="Card image cap">
+                                <img class="card-img-top" src="http://tinyurl.com/hr23xpt" alt="Card image cap">
                                   <div class="card-block">
                                      <h4 class="card-title">${changethisname.cars[i].make}</h4>
                                      <h5 class="card-title">${changethisname.cars[i].model}</h5>
@@ -71,7 +71,7 @@ function populatePage (changethisname) {
     } //-------------endforloop
 
 sendToTheDom(createTheCard)
-console.log(createTheCard)
+// console.log(createTheCard)
   // Now that the DOM is loaded, establish all the event listeners needed
   // activateEvents();
 }
@@ -97,6 +97,36 @@ console.log(createTheCard)
   inventoryLoader.send()
 }
 
+function activateEvents(event) {
+
+// how many events
+// what events
+//
+// clicking on car Cards to add thicker border
+// click  function(event){
+// if(target.element.img === true){
+// add thicker border + background color to different color}})
+//
+// when clicking on card focus and cursor move to text box
+// click, function(event){
+// if(click.target.element === card){change focuse to #textBox}})
+//
+//
+// 'keyup', function(event) {
+//  if (focus === #textbox ) {
+//      catch typing and add to variable.
+//      input typing into description of  selected element
+//
+//
+//    }
+//
+// })
+// when should they be activated
+
+
+
+}
+
 
 
 // Loop over your array of cars and build up an HTML string to build a card for each car.
@@ -111,11 +141,8 @@ console.log(createTheCard)
 // Put a text input field in the navigation bar.
 
 
-// Make sure you display all properties of the car in the DOM. Basic styling is up to you.
 
 
-// Make sure that each car card element has a CSS class which adds
-// a black border around it.
 
 
 // When you click on one of the car elements, change the width
