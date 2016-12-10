@@ -54,7 +54,7 @@ function populatePage (changethisname) {
         // console.log("this is the i" ,createTheCard)
 // /
 //     [i].make  .model  .price .description
-            createTheCard += `<div class="card">
+            createTheCard += `<div class="card col-md-4">
                                 <img class="card-img-top" src="#" alt="Card image cap">
                                   <div class="card-block">
                                      <h4 class="card-title">${changethisname.cars[i].make}</h4>
@@ -63,9 +63,9 @@ function populatePage (changethisname) {
 
 
                                   <p class="card-text">${changethisname.cars[i].description}</p>
-                  <a href="#" class="btn btn-primary">edit description?</a>
-                  </div>
-              </div>`
+                                <a href="#" class="btn btn-primary">edit description?</a>
+                                 </div>
+                            </div>`
 
 
     } //-------------endforloop
@@ -76,42 +76,29 @@ console.log(createTheCard)
   // activateEvents();
 }
 
-function sendToTheDom(builtHTMLFromPopulatePage) {
+      function sendToTheDom(builtHTMLFromPopulatePage) {
 
-  console.log(builtHTMLFromPopulatePage)
-      document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
- }
+  // console.log(builtHTMLFromPopulatePage)
+        document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
+        }
 
-// Load the inventory and send a callback function to be
-// invoked after the process is complete
+          // Load the inventory and send a callback function to be
+          // invoked after the process is complete
 
-function loadInventory (callback) {
-  var inventoryLoader = new XMLHttpRequest();
-  inventoryLoader.addEventListener("load", function (e) {
-      inventory = JSON.parse(e.target.responseText)
-      console.log(inventory)
+          function loadInventory (callback) {
+            var inventoryLoader = new XMLHttpRequest();
+            inventoryLoader.addEventListener("load", function (e) {
+                inventory = JSON.parse(e.target.responseText)
+                // console.log(inventory)
 
-      populatePage(inventory)
-
-
-
-
-    });
+                populatePage(inventory)
+});
   inventoryLoader.open('GET', 'inventory.json')
   inventoryLoader.send()
 }
 
-// Create an array of cars in the inventory.json file
-// (see example structure below). Put at least three cars in the array.
-//
-//
-//
-// //
-// //
-// When your page first loads, you need to use an XHR to
-// // load the contents of the JSON file, and parse them into a native JavaScript object.
-//
-//
+
+
 // Loop over your array of cars and build up an HTML string to build a card for each car.
 //  Also, use Bootstrap to create rows. Each row should contain 3 columns.
 //  Make sure you have a parent element with a class of container.
