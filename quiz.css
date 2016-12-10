@@ -1,9 +1,13 @@
 body {
-  background-color: lightgray;
+  background-color: #e9ece5;
+}
+
+.container {
+  background-color: #c0dfd9;
 }
 .navbar-form {
 
-  min-width: 20%;
+
 }
 
 
@@ -15,10 +19,20 @@ textarea {
 }
 
 .card-img-top {
-
-  max-width: 100%;
+  max-height: 20%;
+  max-width: 50%;
 }
 
 .card {
-  border: solid 2px black;
+  text-align: center;
+  min-height: 450px;
+  border: solid 2px #3b3a36;
+  padding: 2rem;
+}
+
+
+.clicked-card {
+
+  border: solid 10px #3b3a36;
+  background-color:
 }
