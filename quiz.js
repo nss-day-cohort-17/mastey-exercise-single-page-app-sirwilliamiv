@@ -38,9 +38,10 @@ function originalStyling() {
 //
  document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
       if(event.target.className === "card col-md-4") {
-
-            event.target.classList.add("clicked-card")
-        // addtheclass .clicked-card
+// ----------adding clicked styling
+            event.target.classList.toggle("clicked-card")
+// ---------setting focus after click
+            document.getElementById("typingTextHere").focus()
 
 
       }
