@@ -3,11 +3,17 @@ body {
 }
 
 .container {
-  background-color: #c0dfd9;
+  background-color: #9ad3de;
+  border-radius:  2%;
+  text-align: center;
 }
 .navbar-form {
 
 
+}
+
+.row {
+  max-width:  80%;
 }
 
 
@@ -24,6 +30,8 @@ textarea {
 }
 
 .card {
+  background-color: #b3c2bf;
+  border-radius: 1.8%;
   text-align: center;
   min-height: 450px;
   border: solid 2px #3b3a36;
@@ -34,5 +42,5 @@ textarea {
 .clicked-card {
 
   border: solid 10px #3b3a36;
-  background-color:
+  background-color: #b7a2bf
 }

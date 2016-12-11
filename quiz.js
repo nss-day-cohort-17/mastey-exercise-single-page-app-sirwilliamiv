@@ -36,12 +36,16 @@ function originalStyling() {
 // var carClickedOn = document.target.this.querySelector("#dropDown");
 // A color name of your choice (see behavior requirement 5 above).
 //
- function changeBorderAndBackground() {
-// addClass("yourNewClassgoeshere")
-// var theDropDown = document.querySelector("#dropDown");
-// theDropDown.classList.add("disableMenu");
-// theDropDown.classList.remove("disableMenu");
- }
+ document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
+      if(event.target.className === "card col-md-4") {
+
+            event.target.classList.add("clicked-card")
+        // addtheclass .clicked-card
+
+
+      }
+
+ })
 
 
 
@@ -97,35 +101,46 @@ sendToTheDom(createTheCard)
   inventoryLoader.send()
 }
 
-function activateEvents(event) {
+// function activateEvents(event) {
 
-// how many events
-// what events
-//
-// clicking on car Cards to add thicker border
-// click  function(event){
-// if(target.element.img === true){
-// add thicker border + background color to different color}})
-//
-// when clicking on card focus and cursor move to text box
-// click, function(event){
-// if(click.target.element === card){change focuse to #textBox}})
-//
-//
-// 'keyup', function(event) {
-//  if (focus === #textbox ) {
-//      catch typing and add to variable.
-//      input typing into description of  selected element
-//
-//
-//    }
-//
-// })
-// when should they be activated
+// // how many events
+// // what events
+// if(event === 'click') {
+// // / When you click on one of the car elements, change the width
+// // of the border to a higher value, and change the background color to any other color of your choosing.
+
+// // var theDropDown = document.querySelector("#dropDown");
+// // theDropDown.classList.add("disableMenu");
+// // theDropDown.classList.remove("disableMenu");
+// // Also, on click of the car element, clear the value of the text
+// // input in the navbar, and put the cursor in the text input.
+// //
+// //
+// // click  function(event){
+// // if(target.element.img === true){
+// // add thicker border + background color to different color}})
+// //
+// // when clicking on card focus and cursor move to text box
+// // click, function(event){
+// // if(click.target.element === card){change focuse to #textBox}})
+// //
+// }
+
+// if (event === 'keyup')
+// // 'keyup', function(event) {
+// //  if (focus === #textbox ) {
+// //      catch typing and add to variable.
+// //      input typing into description of  selected element
+// //
+// //
+// //    }
+// //
+// // })
+// // when should they be activated
 
 
 
-}
+// } //---------END activateEvents--------------
 
 
 
@@ -145,12 +160,7 @@ function activateEvents(event) {
 
 
 
-// When you click on one of the car elements, change the width
-// of the border to a higher value, and change the background color to any other color of your choosing.
 
-
-// Also, on click of the car element, clear the value of the text
-// input in the navbar, and put the cursor in the text input.
 //
 // When you start typing into the navbar's text input, the description, and only that property,
 //  of the currently selected car should be bound to what you are typing in and match it exactly.
