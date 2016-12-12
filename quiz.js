@@ -32,7 +32,7 @@ function originalStyling() {
 
 //
  document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
-
+//  try QUERY SELECTOR HERE!!!
       if(event.target.className === "card col-md-4" ) {
 // ----------adding clicked styling
             event.target.classList.add("clicked-card")
@@ -49,6 +49,8 @@ function originalStyling() {
  document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
          thisIsTheEditText += event.key
   console.log(thisIsTheEditText)
+
+  // whatever.value = variablestufftoputintodescription
 
     // if (how do i target elemnt just clicked?)
 
@@ -67,8 +69,8 @@ function populatePage (changethisname) {
         // console.log("this is the i" ,createTheCard)
 // /
 //     [i].make  .model  .price .description
-            createTheCard += `<div class="card col-md-4">
-                                <img class="card-img-top" src="http://tinyurl.com/hr23xpt" alt="Card image cap">
+            createTheCard += `<div class="card col-md-3">
+
                                   <div class="card-block">
                                      <h4 class="card-title">${changethisname.cars[i].make}</h4>
                                      <h5 class="card-title">${changethisname.cars[i].model}</h5>
@@ -76,7 +78,7 @@ function populatePage (changethisname) {
 
 
                                   <p class="card-text">${changethisname.cars[i].description}</p>
-                                <a href="#" class="btn btn-primary">edit description?</a>
+
                                  </div>
                             </div>`
 
