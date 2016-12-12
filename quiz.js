@@ -26,15 +26,16 @@ function activateEvents() {}
 
 
 // this selects the card and changes the color
- document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
+document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
 //  try QUERY SELECTOR HERE!!!
-//
+           var elt = event.target.closest(".card")
+           console.log(elt)
 //  accept element and color function in here // event.target vs event.currenttarget
-console.log(event)
-      if(event.target.className === "card col-md-3") {
+// console.log(event)
+      if(elt) {
         // console.log("click")
 // ----------adding clicked styling
-            event.target.classList.add("clicked-card")
+            event.target.classList.toggle("clicked-card")
 
 
 // ---------setting focus after click
