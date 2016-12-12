@@ -32,14 +32,27 @@ function originalStyling() {
 
 //
  document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
+
       if(event.target.className === "card col-md-4" ) {
 // ----------adding clicked styling
-            event.target.classList.toggle("clicked-card")
+            event.target.classList.add("clicked-card")
+
 // ---------setting focus after click
             document.getElementById("typingTextHere").focus()
 
 
       }
+
+ })
+ var thisIsTheEditText ="";
+
+ document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
+         thisIsTheEditText += event.key
+  console.log(thisIsTheEditText)
+
+    // if (how do i target elemnt just clicked?)
+
+
 
  })
 
@@ -76,16 +89,18 @@ sendToTheDom(createTheCard)
   // activateEvents();
 }
 
-      function sendToTheDom(builtHTMLFromPopulatePage) {
+
+
+function sendToTheDom(builtHTMLFromPopulatePage) {
 
   // console.log(builtHTMLFromPopulatePage)
-        document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
-        }
+document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
+    }
 
           // Load the inventory and send a callback function to be
           // invoked after the process is complete
 
-          function loadInventory (callback) {
+function loadInventory (callback) {
             var inventoryLoader = new XMLHttpRequest();
             inventoryLoader.addEventListener("load", function (e) {
                 inventory = JSON.parse(e.target.responseText)
