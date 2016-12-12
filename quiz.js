@@ -22,20 +22,20 @@ loadInventory();
 // function list
 function activateEvents() {}
 // i will reset styling  AFTER i'm not clicked on
-function originalStyling() {
-
-//   if focus = false {
-//     set style to original
-//   }
- }
 
 
-//
+
+// this selects the card and changes the color
  document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
 //  try QUERY SELECTOR HERE!!!
-      if(event.target.className === "card col-md-4" ) {
+//
+//  accept element and color function in here // event.target vs event.currenttarget
+console.log(event)
+      if(event.target.className === "card col-md-3") {
+        // console.log("click")
 // ----------adding clicked styling
             event.target.classList.add("clicked-card")
+
 
 // ---------setting focus after click
             document.getElementById("typingTextHere").focus()
@@ -43,21 +43,34 @@ function originalStyling() {
 
       }
 
+
  })
+
+
+// changing the  description function
+//
+ function  letMeChangeTheDescriptionForYou(newText) {
+      console.log(newText)
+  // target.thedescriptionelement = newText;
+ }
+
+// -----------------------------------------------------------------------
+
  var thisIsTheEditText ="";
 
  document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
-         thisIsTheEditText += event.key
-  console.log(thisIsTheEditText)
 
-  // whatever.value = variablestufftoputintodescription
+
+          thisIsTheEditText += event.key;
+  // console.log(thisIsTheEditText)
 
     // if (how do i target elemnt just clicked?)
 
+letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
 
+ });
 
- })
-
+// -----------------------------------------------------------------------
 
 
 // THis will put content into html once  html is built up through loop
@@ -86,12 +99,12 @@ function populatePage (changethisname) {
     } //-------------endforloop
 
 sendToTheDom(createTheCard)
-// console.log(createTheCard)
+
   // Now that the DOM is loaded, establish all the event listeners needed
   // activateEvents();
 }
 
-
+//-----------------------------------------------------------------------
 
 function sendToTheDom(builtHTMLFromPopulatePage) {
 
