@@ -29,15 +29,10 @@ function originalStyling() {
 //   }
  }
 
-// You should add a function that changes the thickness of the
-// border of a car element, and changes its background color.
-// The function must accept two arguments: THESE MAY NEED TO BE GLOBAL VARIABLES
-// A car DOM element that was clicked on.
-// var carClickedOn = document.target.this.querySelector("#dropDown");
-// A color name of your choice (see behavior requirement 5 above).
+
 //
  document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
-      if(event.target.className === "card col-md-4") {
+      if(event.target.className === "card col-md-4" ) {
 // ----------adding clicked styling
             event.target.classList.toggle("clicked-card")
 // ---------setting focus after click
