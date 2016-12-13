@@ -42,20 +42,30 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
 
            // var elt = event.target.closest(".card")
             var card = document.querySelector('.card')
+            console.log(card)
             var clickedElement = event.target
            // console.log(elt)
 // console.log(event.target)
 // console.dir(event.target)
 
-          if (clickedElement.parentElement.className === "card col-md-3" || clickedElement.className === "card col-md-3") {
+          if (clickedElement.parentElement.className === "card col-md-3" ){
+
+                clickedElement.parentElement.classList.add("clicked-card")
+
+          }
+          else if( clickedElement.className === "card col-md-3") {
+
+              clickedElement.classList.add("clicked-card")
 // ----------adding clicked styling
-            card.classList.add("clicked-card")
-// ---------setting focus after click
-            document.getElementById("typingTextHere").focus()
+//             card.classList.add("clicked-card")
+// // ---------setting focus after click
+//             document.getElementById("typingTextHere").focus()
 
           }
             else {
-                    event.target.classList.remove("clicked-card")
+                   clickedElement.parentElement.classList.remove("clicked-card")
+
+                    console.log("you made it in")
             }
 
 
@@ -150,6 +160,7 @@ function populatePage (changethisname) {
 
 sendToTheDom(createTheCard)
 
+
   // Now that the DOM is loaded, establish all the event listeners needed
   // activateEvents();
 }
@@ -168,6 +179,8 @@ function sendToTheDom(builtHTMLFromPopulatePage) {
 
   // console.log(builtHTMLFromPopulatePage)
 document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
+
+// function whateveeventlistenr
     }
 
           // Load the inventory and send a callback function to be
