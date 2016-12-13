@@ -38,23 +38,25 @@ function activateEvents() {}
 
 // =================================// this selects the card and changes the color====================================================
 
-document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
+document.querySelector("body").addEventListener('click',function changeBorderAndBackground(event) {
 
-           var elt = event.target.closest(".card")
+           // var elt = event.target.closest(".card")
+            var card = document.querySelector('.card')
+            var clickedElement = event.target
            // console.log(elt)
+// console.log(event.target)
+// console.dir(event.target)
 
-
-      if(elt !== null) {
-
+          if (clickedElement.parentElement.className === "card col-md-3" || clickedElement.className === "card col-md-3") {
 // ----------adding clicked styling
-            event.target.classList.toggle("clicked-card")
-
-
+            card.classList.add("clicked-card")
 // ---------setting focus after click
             document.getElementById("typingTextHere").focus()
 
-
-      }
+          }
+            else {
+                    event.target.classList.remove("clicked-card")
+            }
 
 
  })
@@ -120,6 +122,8 @@ letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text t
 
 
 // THis will put content into html once  html is built up through loop
+//
+
 function populatePage (changethisname) {
   var createTheCard="";
   // Loop over the inventory and populate the page
@@ -127,10 +131,10 @@ function populatePage (changethisname) {
 
         // console.log("this is the i" ,createTheCard)
 // /
-//     [i].make  .model  .price .description
+
             createTheCard += `<div class="card col-md-3">
 
-                                  <div class="card-block">
+
                                      <h4 class="card-title">${changethisname.cars[i].make}</h4>
                                      <h5 class="card-title">${changethisname.cars[i].model}</h5>
                                      <h4 class="card-title">${changethisname.cars[i].price}</h4>
@@ -138,7 +142,7 @@ function populatePage (changethisname) {
 
                                   <div class="card-text">${changethisname.cars[i].description}</div>
 
-                                 </div>
+
                             </div>`
 
 
