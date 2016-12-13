@@ -25,15 +25,27 @@ function activateEvents() {}
 
 
 
-// this selects the card and changes the color
+
+
+
+
+
+
+
+
+
+
+
+// =================================// this selects the card and changes the color====================================================
+
 document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
-//  try QUERY SELECTOR HERE!!!
+
            var elt = event.target.closest(".card")
-           console.log(elt)
-//  accept element and color function in here // event.target vs event.currenttarget
-// console.log(event)
-      if(elt) {
-        // console.log("click")
+           // console.log(elt)
+
+
+      if(elt !== null) {
+
 // ----------adding clicked styling
             event.target.classList.toggle("clicked-card")
 
@@ -48,21 +60,46 @@ document.querySelector('body').addEventListener('click',function changeBorderAnd
  })
 
 
+
+
+
+
+
 // changing the  description function
 //
  function  letMeChangeTheDescriptionForYou(newText) {
-      console.log(newText)
-  // target.thedescriptionelement = newText;
+
+
+      document.querySelector('.card-text').innerHTML = ""
+      document.querySelector('.card-text').innerHTML += newText
+
+
  }
+
+
+
+
+
+
+
+
+
 
 // -----------------------------------------------------------------------
 
  var thisIsTheEditText ="";
 
- document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
+ document.getElementById("typingTextHere").addEventListener('keypress', function editTheDescription(event){
 
-
+if (event.keyCode === 13 )
+ {
+    return false;
+  }
+  else{
           thisIsTheEditText += event.key;
+
+        }
+          // thisIsTheEditText -= event.key;
   // console.log(thisIsTheEditText)
 
     // if (how do i target elemnt just clicked?)
@@ -70,6 +107,14 @@ document.querySelector('body').addEventListener('click',function changeBorderAnd
 letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
 
  });
+
+
+
+
+
+
+
+
 
 // -----------------------------------------------------------------------
 
@@ -91,7 +136,7 @@ function populatePage (changethisname) {
                                      <h4 class="card-title">${changethisname.cars[i].price}</h4>
 
 
-                                  <p class="card-text">${changethisname.cars[i].description}</p>
+                                  <div class="card-text">${changethisname.cars[i].description}</div>
 
                                  </div>
                             </div>`
@@ -104,6 +149,14 @@ sendToTheDom(createTheCard)
   // Now that the DOM is loaded, establish all the event listeners needed
   // activateEvents();
 }
+
+
+
+
+
+
+
+
 
 //-----------------------------------------------------------------------
 
