@@ -62,10 +62,12 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
 //             document.getElementById("typingTextHere").focus()
 
           }
-            else {
-                   clickedElement.parentElement.classList.remove("clicked-card")
+            else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
+                    clickedElement.parentElement.classList.remove("clicked-card")
+                    clickedElement.classList.remove("clicked-card")
 
                     console.log("you made it in")
+                  }
             }
 
 
