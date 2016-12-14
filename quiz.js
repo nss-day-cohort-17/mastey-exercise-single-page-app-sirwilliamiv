@@ -42,7 +42,7 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
 
            // var elt = event.target.closest(".card")
             var card = document.querySelector('.card')
-            console.log(card)
+            // console.log(card)
             var clickedElement = event.target
            // console.log(elt)
 // console.log(event.target)
@@ -51,22 +51,25 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
           if (clickedElement.parentElement.className === "card col-md-3" ){
 
                 clickedElement.parentElement.classList.add("clicked-card")
-
+                       document.getElementById("typingTextHere").focus()
+                          // card.id = "iAmClicked"
           }
           else if( clickedElement.className === "card col-md-3") {
 
               clickedElement.classList.add("clicked-card")
+              // card.id = "iAmClicked"
 // ----------adding clicked styling
 //             card.classList.add("clicked-card")
 // // ---------setting focus after click
-//             document.getElementById("typingTextHere").focus()
+            document.getElementById("typingTextHere").focus()
 
           }
             else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
                     clickedElement.parentElement.classList.remove("clicked-card")
                     clickedElement.classList.remove("clicked-card")
 
-                    console.log("you made it in")
+
+                    // console.log("you made it in")
                   }
             }
 
@@ -103,7 +106,7 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
 
  var thisIsTheEditText ="";
 
- document.getElementById("typingTextHere").addEventListener('keypress', function editTheDescription(event){
+document.getElementById("typingTextHere").addEventListener('keypress', function editTheDescription(event){
 
 if (event.keyCode === 13 )
  {
@@ -118,7 +121,7 @@ if (event.keyCode === 13 )
 
     // if (how do i target elemnt just clicked?)
 
-letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
+      letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
 
  });
 
@@ -160,7 +163,7 @@ function populatePage (changethisname) {
 
     } //-------------endforloop
 
-sendToTheDom(createTheCard)
+          sendToTheDom(createTheCard)
 
 
   // Now that the DOM is loaded, establish all the event listeners needed
@@ -200,59 +203,7 @@ function loadInventory (callback) {
   inventoryLoader.send()
 }
 
-// function activateEvents(event) {
 
-// // how many events
-// // what events
-// if(event === 'click') {
-// // / When you click on one of the car elements, change the width
-// // of the border to a higher value, and change the background color to any other color of your choosing.
-
-// // var theDropDown = document.querySelector("#dropDown");
-// // theDropDown.classList.add("disableMenu");
-// // theDropDown.classList.remove("disableMenu");
-// // Also, on click of the car element, clear the value of the text
-// // input in the navbar, and put the cursor in the text input.
-// //
-// //
-// // click  function(event){
-// // if(target.element.img === true){
-// // add thicker border + background color to different color}})
-// //
-// // when clicking on card focus and cursor move to text box
-// // click, function(event){
-// // if(click.target.element === card){change focuse to #textBox}})
-// //
-// }
-
-// if (event === 'keyup')
-// // 'keyup', function(event) {
-// //  if (focus === #textbox ) {
-// //      catch typing and add to variable.
-// //      input typing into description of  selected element
-// //
-// //
-// //    }
-// //
-// // })
-// // when should they be activated
-
-
-
-// } //---------END activateEvents--------------
-
-
-
-// Loop over your array of cars and build up an HTML string to build a card for each car.
-//  Also, use Bootstrap to create rows. Each row should contain 3 columns.
-//  Make sure you have a parent element with a class of container.
-//  Hint: You must build up the entire string of columns/rows before injecting into the DOM.
-//  Use a counter variable to know when to close a row after three columns
-//
-//
-//
-// Put a standard Bootstrap navbar element at the top of your page.
-// Put a text input field in the navigation bar.
 
 
 
@@ -260,6 +211,4 @@ function loadInventory (callback) {
 
 
 
-//
-// When you start typing into the navbar's text input, the description, and only that property,
-//  of the currently selected car should be bound to what you are typing in and match it exactly.
+// } //---------END activateEvents--------------
