@@ -41,7 +41,7 @@ function activateEvents() {}
 document.querySelector("body").addEventListener('click',function changeBorderAndBackground(event) {
 
            // var elt = event.target.closest(".card")
-            var thisOne = document.querySelector('.card-text')
+
             // console.log(card)
             var clickedElement = event.target
            // console.log(elt)
@@ -52,13 +52,15 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
 
                 clickedElement.parentElement.classList.add("clicked-card")
                        document.getElementById("typingTextHere").focus()
-                         thisOne.id ="iAmClicked"
+                        // var thisOne = document.querySelector('.card-text')
+                         // thisOne.id ="iAmClicked"
                           // card.id = "iAmClicked"
           }
           else if( clickedElement.className === "card col-md-3") {
 
               clickedElement.classList.add("clicked-card")
-              thisOne.id ="iAmClicked"
+                  // var thisOne = document.querySelector('.card-text')
+              // thisOne.id ="iAmClicked"
               // card.id = "iAmClicked"
 // ----------adding clicked styling
 //             card.classList.add("clicked-card")
@@ -69,7 +71,7 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
             else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
                     clickedElement.parentElement.classList.remove("clicked-card")
                     clickedElement.classList.remove("clicked-card")
-                    thisOne.removeAttribute("iAmClicked")
+                    // thisOne.removeAttribute("iAmClicked")
 
 
                     // console.log("you made it in")
@@ -90,8 +92,8 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
  function  letMeChangeTheDescriptionForYou(newText) {
 
 
-      document.querySelector('#iAmClicked').innerHTML = ""
-      document.querySelector('#iAmClicked').innerHTML += newText
+      document.querySelector('.card-text').innerHTML = ""
+      document.querySelector('.card-text').innerHTML += newText
 
 
  }
@@ -101,7 +103,14 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
 
 
 
+// document.getElementById("typingTextHere").addEventListener('keypress',function backSpace (event) {
 
+  // keycode of backspace = thisIsTheEditText.slice(thisIsTheEditText.length - 1)
+
+
+
+
+// });
 
 
 
@@ -123,7 +132,7 @@ if (event.keyCode === 13 )
   // console.log(thisIsTheEditText)
 
     // if (how do i target elemnt just clicked?)
-
+      backSpace(thisIsTheEditText)
       letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
 
  });
