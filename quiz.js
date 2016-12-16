@@ -23,68 +23,38 @@ loadInventory();
 function activateEvents() {}
 // i will reset styling  AFTER i'm not clicked on
 
+// function changingTheStyling(element, color) {
+//     element = clickedElement.parentElement.classList.add("clicked-card")
 
-
-
-
-
-
-
-
-
-
+// }
 
 
 
 // =================================// this selects the card and changes the color====================================================
 
 document.querySelector("body").addEventListener('click',function changeBorderAndBackground(event) {
-
-           // var elt = event.target.closest(".card")
-
-            // console.log(card)
             var clickedElement = event.target
-           // console.log(elt)
-// console.log(event.target)
-// console.dir(event.target)
-
           if (clickedElement.parentElement.className === "card col-md-3" ){
 
                 clickedElement.parentElement.classList.add("clicked-card")
                        document.getElementById("typingTextHere").focus()
-                        // var thisOne = document.querySelector('.card-text')
-                         // thisOne.id ="iAmClicked"
-                          // card.id = "iAmClicked"
+
           }
           else if( clickedElement.className === "card col-md-3") {
 
               clickedElement.classList.add("clicked-card")
-                  // var thisOne = document.querySelector('.card-text')
-              // thisOne.id ="iAmClicked"
-              // card.id = "iAmClicked"
-// ----------adding clicked styling
-//             card.classList.add("clicked-card")
-// // ---------setting focus after click
+
             document.getElementById("typingTextHere").focus()
 
           }
             else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
                     clickedElement.parentElement.classList.remove("clicked-card")
                     clickedElement.classList.remove("clicked-card")
-                    // thisOne.removeAttribute("iAmClicked")
-
-
-                    // console.log("you made it in")
                   }
             }
 
 
  })
-
-
-
-
-
 
 
 // changing the  description function
@@ -106,6 +76,7 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
 // document.getElementById("typingTextHere").addEventListener('keypress',function backSpace (event) {
 
   // keycode of backspace = thisIsTheEditText.slice(thisIsTheEditText.length - 1)
+  // --need to find out how to subtract curreent position via backspace button
 
 
 
@@ -115,14 +86,19 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
 
 
 // -----------------------------------------------------------------------
+// put a function to hold the timing of this event. for when a card is clicked
 
  var thisIsTheEditText ="";
 
-document.getElementById("typingTextHere").addEventListener('keypress', function editTheDescription(event){
+document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
 
-if (event.keyCode === 13 )
+if (event.code === "Enter" )
  {
     return false;
+  }
+  else if (event.code === "Backspace" ) {
+   thisIsTheEditText = thisIsTheEditText.substring(0, thisIsTheEditText.length -1)
+
   }
   else{
           thisIsTheEditText += event.key;
@@ -132,7 +108,7 @@ if (event.keyCode === 13 )
   // console.log(thisIsTheEditText)
 
     // if (how do i target elemnt just clicked?)
-      backSpace(thisIsTheEditText)
+      // backSpace(thisIsTheEditText)
       letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
 
  });
