@@ -34,10 +34,14 @@ function activateEvents() {}
 
 document.querySelector("body").addEventListener('click',function changeBorderAndBackground(event) {
             var clickedElement = event.target
+            var something = clickedElement.className
+            // if(alreadyhaveclass){ something === false}
+            //   something to true
           if (clickedElement.parentElement.className === "card col-md-3" ){
 
                 clickedElement.parentElement.classList.add("clicked-card")
                        document.getElementById("typingTextHere").focus()
+                       whenToStartTyping()
 
           }
           else if( clickedElement.className === "card col-md-3") {
@@ -45,6 +49,7 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
               clickedElement.classList.add("clicked-card")
 
             document.getElementById("typingTextHere").focus()
+            whenToStartTyping()
 
           }
             else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
@@ -69,26 +74,12 @@ document.querySelector("body").addEventListener('click',function changeBorderAnd
  }
 
 
-
-
-
-
-// document.getElementById("typingTextHere").addEventListener('keypress',function backSpace (event) {
-
-  // keycode of backspace = thisIsTheEditText.slice(thisIsTheEditText.length - 1)
-  // --need to find out how to subtract curreent position via backspace button
-
-
-
-
-// });
-
-
-
 // -----------------------------------------------------------------------
 // put a function to hold the timing of this event. for when a card is clicked
 
  var thisIsTheEditText ="";
+
+ function whenToStartTyping() {
 
 document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
 
@@ -112,6 +103,8 @@ if (event.code === "Enter" )
       letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
 
  });
+
+}
 
 
 
