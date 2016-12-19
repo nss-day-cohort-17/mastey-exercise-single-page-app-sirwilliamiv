@@ -24,37 +24,48 @@ function changing(element, color) {
     element.classList.add("clicked-card")
       document.getElementById("typingTextHere").focus()
 
-       whenToStartTyping()
+       // whenToStartTyping(element)
 
 }
 
 
       function resetStyleOnClick (clickedElement) {
-    clickedElement.classList.remove("clicked-card")
+        for(var i =0; i < selectTheseCards.length;  i++) {
+   selectTheseCards[i].classList.remove("clicked-card")
+  }
 }
 
 // changing the text in  description function
 //
- function  letMeChangeTheDescriptionForYou(newText) {
-  if ("card col-md-3 clicked-card") {
+ // function  letMeChangeTheDescriptionForYou(newText) {
 
-      document.querySelector('.card-text').innerHTML = ""
-      document.querySelector('.card-text').innerHTML += newText
 
-        }
- }
+ //      document.querySelector('.card-text').innerHTML = ""
+ //      document.querySelector('.card-text').innerHTML += newText
 
+
+ // }
+var parent  = ""
+
+// if (global variable != "") {
+//   when click
+//   set div to global variable
+// }
 
 // -----------------------------------------------------------------------
 // put a function to hold the timing of this event. for when a card is clicked
 
  var thisIsTheEditText ="";
 // this function is only called inside click event to prevent typing editing when no element selected
- function whenToStartTyping() {
+
+
+ // function whenToStartTyping(elementINeed) {
 // resetStyleOnClick()
 document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
-
-if (event.code === "Enter" )
+  if(parent === "") {
+    return
+  }
+else if (event.code === "Enter" )
  {
     return false;
   }
@@ -64,15 +75,15 @@ if (event.code === "Enter" )
 
   }
   else{
-          thisIsTheEditText += event.key;
+          thisIsTheEditText = event.key;
+          // console.log(elementINeed)
+      // parent.querySelector('.card-text').innerHTML = "" NEED TO RESET HTML TEXT
+     parent.querySelector('.card-text').innerHTML += ""
+      parent.querySelector('.card-text').innerHTML = thisIsTheEditText //-------> sending new text to descriptio
 
         }
-
-      letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
-
- });
-
-}
+ })
+    // }
 
 // THis will put content into html once  html is built up through loop
 //
@@ -105,17 +116,17 @@ function populatePage (changethisname) {
 
 function changeBorderAndBackground(event) {
             var clickedElement = event.target
-
+            resetStyleOnClick()
 
           if (clickedElement.parentElement.className === "card col-md-3" ){
-               var parent = clickedElement.parentElement
+                parent = clickedElement.parentElement
 
                   changing(parent)
 
           }
           else if( clickedElement.className === "card col-md-3") {
-              var noParent = clickedElement
-              changing(noParent)
+               parent = clickedElement
+              changing(parent)
 
 
           }
