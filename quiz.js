@@ -14,63 +14,80 @@ console.log("hey javascript")
 
 // I will hold the json file native js object CHECKED
 var inventory = [];
-
+var selectTheseCards;
 
 
 loadInventory();
 
 // function list
-function activateEvents() {}
+function activateEvents() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 // i will reset styling  AFTER i'm not clicked on
 
 // function changingTheStyling(element, color) {
 //     element = clickedElement.parentElement.classList.add("clicked-card")
 
-// }
+// select all divs on page
+// set div with clicked-card to
+
+function changing(element, color) {
+    element.classList.add("clicked-card")
+    element.classList.add("clicked-card")
+      document.getElementById("typingTextHere").focus()
+
+       whenToStartTyping()
+}
 
 
 
 // =================================// this selects the card and changes the color====================================================
 
-document.querySelector("body").addEventListener('click',function changeBorderAndBackground(event) {
-            var clickedElement = event.target
-            var something = clickedElement.className
-            // if(alreadyhaveclass){ something === false}
-            //   something to true
-          if (clickedElement.parentElement.className === "card col-md-3" ){
+// document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
+//             var clickedElement = event.target
 
-                clickedElement.parentElement.classList.add("clicked-card")
-                       document.getElementById("typingTextHere").focus()
-                       whenToStartTyping()
+//           if (clickedElement.parentElement.className === "card col-md-3" ){
+//                var parent = clickedElement.parentElement
 
-          }
-          else if( clickedElement.className === "card col-md-3") {
+//                   changing(parent)
 
-              clickedElement.classList.add("clicked-card")
+//           }
+//           else if( clickedElement.className === "card col-md-3") {
+//               var noParent = clickedElement
+//               changing(noParent)
 
-            document.getElementById("typingTextHere").focus()
-            whenToStartTyping()
-
-          }
-            else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
-                    clickedElement.parentElement.classList.remove("clicked-card")
-                    clickedElement.classList.remove("clicked-card")
-                  }
-            }
+//           }
+//             else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
+//                     clickedElement.parentElement.classList.remove("clicked-card")
+//                     clickedElement.classList.remove("clicked-card")
+//                   }
+//             }
 
 
- })
+//  })
 
 
 // changing the  description function
 //
  function  letMeChangeTheDescriptionForYou(newText) {
-
+  if ("card col-md-3 clicked-card") {
 
       document.querySelector('.card-text').innerHTML = ""
       document.querySelector('.card-text').innerHTML += newText
 
-
+        }
  }
 
 
@@ -95,11 +112,7 @@ if (event.code === "Enter" )
           thisIsTheEditText += event.key;
 
         }
-          // thisIsTheEditText -= event.key;
-  // console.log(thisIsTheEditText)
 
-    // if (how do i target elemnt just clicked?)
-      // backSpace(thisIsTheEditText)
       letMeChangeTheDescriptionForYou(thisIsTheEditText) //-------> sending new text to description
 
  });
@@ -125,9 +138,6 @@ function populatePage (changethisname) {
   // Loop over the inventory and populate the page
     for(var i = 0; i < changethisname.cars.length; i++) {
 
-        // console.log("this is the i" ,createTheCard)
-// /
-
             createTheCard += `<div class="card col-md-3">
 
 
@@ -139,7 +149,7 @@ function populatePage (changethisname) {
                                   <div class="card-text">${changethisname.cars[i].description}</div>
 
 
-                            </div>`
+                              </div>`
 
 
     } //-------------endforloop
@@ -151,8 +161,42 @@ function populatePage (changethisname) {
   // activateEvents();
 }
 
+function changeBorderAndBackground(event) {
+            var clickedElement = event.target
+            console.log("166:",event)
+
+          if (clickedElement.parentElement.className === "card col-md-3" ){
+               var parent = clickedElement.parentElement
+
+                  changing(parent)
+
+          }
+          else if( clickedElement.className === "card col-md-3") {
+              var noParent = clickedElement
+              changing(noParent)
+
+          }
+            else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
+                    clickedElement.parentElement.classList.remove("clicked-card")
+                    clickedElement.classList.remove("clicked-card")
+                  }
+            }
 
 
+ }
+
+
+// console.log("line 186",selectTheseCards)
+function loopTheCards(selectTheseCards) {
+
+  // console.log("line 191:", selectTheseCards)
+for(var i =0; i < selectTheseCards.length;  i++) {
+
+      selectTheseCards[i].addEventListener('click',changeBorderAndBackground(event))
+console.log(event)
+
+    }
+  }
 
 
 
@@ -166,7 +210,11 @@ function sendToTheDom(builtHTMLFromPopulatePage) {
   // console.log(builtHTMLFromPopulatePage)
 document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
 
-// function whateveeventlistenr
+// load up array of  created divs
+    selectTheseCards = document.querySelectorAll('.card')
+    console.log(selectTheseCards)
+    loopTheCards(selectTheseCards)
+
     }
 
           // Load the inventory and send a callback function to be
