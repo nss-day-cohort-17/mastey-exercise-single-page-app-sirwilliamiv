@@ -15,31 +15,7 @@ console.log("hey javascript")
 // I will hold the json file native js object CHECKED
 var inventory = [];
 var selectTheseCards;
-
-
 loadInventory();
-
-// function list
-function activateEvents() {
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
 
 // function takes in element and adds class  clicked-card, sets focus to text input
 
@@ -49,13 +25,13 @@ function changing(element, color) {
       document.getElementById("typingTextHere").focus()
 
        whenToStartTyping()
+
 }
 
 
-
-
-
-
+      function resetStyleOnClick (clickedElement) {
+    clickedElement.classList.remove("clicked-card")
+}
 
 // changing the text in  description function
 //
@@ -85,6 +61,7 @@ if (event.code === "Enter" )
   else if (event.code === "Backspace" ) {
    thisIsTheEditText = thisIsTheEditText.substring(0, thisIsTheEditText.length -1)
 
+
   }
   else{
           thisIsTheEditText += event.key;
@@ -96,17 +73,6 @@ if (event.code === "Enter" )
  });
 
 }
-
-
-
-
-
-
-
-
-
-// -----------------------------------------------------------------------
-
 
 // THis will put content into html once  html is built up through loop
 //
@@ -129,20 +95,13 @@ function populatePage (changethisname) {
 
                               </div>`
 
-
     } //-------------endforloop
 
           sendToTheDom(createTheCard)
-
-
-  // Now that the DOM is loaded, establish all the event listeners needed
-  // activateEvents();
 }
 
 // =================================// this selects the card and changes the color====================================================
-// function resetStyleOnClick (clickedElement) {
-//   clickedElement.classList.remove("clicked-card")
-// }
+
 
 function changeBorderAndBackground(event) {
             var clickedElement = event.target
@@ -172,7 +131,6 @@ function changeBorderAndBackground(event) {
 
 // adding click event listener to each div
 function loopTheCards(selectTheseCards) {
-
   // console.log("line 191:", selectTheseCards)
 for(var i =0; i < selectTheseCards.length;  i++) {
 
@@ -183,15 +141,7 @@ for(var i =0; i < selectTheseCards.length;  i++) {
     }
   }
 
-
-
-
-
-
-//-----------------------------------------------------------------------
-
 function sendToTheDom(builtHTMLFromPopulatePage) {
-
   // console.log(builtHTMLFromPopulatePage)
 document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
 
@@ -216,13 +166,3 @@ function loadInventory (callback) {
   inventoryLoader.open('GET', 'inventory.json')
   inventoryLoader.send()
 }
-
-
-
-
-
-
-
-
-
-// } //---------END activateEvents--------------
