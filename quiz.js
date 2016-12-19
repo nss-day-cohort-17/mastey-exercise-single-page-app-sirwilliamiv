@@ -35,13 +35,13 @@ function activateEvents() {
 
 
 }
-// i will reset styling  AFTER i'm not clicked on
 
-// function changingTheStyling(element, color) {
-//     element = clickedElement.parentElement.classList.add("clicked-card")
 
-// select all divs on page
-// set div with clicked-card to
+
+
+
+
+// function takes in element and adds class  clicked-card, sets focus to text input
 
 function changing(element, color) {
     element.classList.add("clicked-card")
@@ -53,33 +53,11 @@ function changing(element, color) {
 
 
 
-// =================================// this selects the card and changes the color====================================================
-
-// document.querySelector('body').addEventListener('click',function changeBorderAndBackground(event) {
-//             var clickedElement = event.target
-
-//           if (clickedElement.parentElement.className === "card col-md-3" ){
-//                var parent = clickedElement.parentElement
-
-//                   changing(parent)
-
-//           }
-//           else if( clickedElement.className === "card col-md-3") {
-//               var noParent = clickedElement
-//               changing(noParent)
-
-//           }
-//             else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
-//                     clickedElement.parentElement.classList.remove("clicked-card")
-//                     clickedElement.classList.remove("clicked-card")
-//                   }
-//             }
 
 
-//  })
 
 
-// changing the  description function
+// changing the text in  description function
 //
  function  letMeChangeTheDescriptionForYou(newText) {
   if ("card col-md-3 clicked-card") {
@@ -95,9 +73,9 @@ function changing(element, color) {
 // put a function to hold the timing of this event. for when a card is clicked
 
  var thisIsTheEditText ="";
-
+// this function is only called inside click event to prevent typing editing when no element selected
  function whenToStartTyping() {
-
+// resetStyleOnClick()
 document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
 
 if (event.code === "Enter" )
@@ -161,9 +139,14 @@ function populatePage (changethisname) {
   // activateEvents();
 }
 
+// =================================// this selects the card and changes the color====================================================
+// function resetStyleOnClick (clickedElement) {
+//   clickedElement.classList.remove("clicked-card")
+// }
+
 function changeBorderAndBackground(event) {
             var clickedElement = event.target
-            console.log("166:",event)
+
 
           if (clickedElement.parentElement.className === "card col-md-3" ){
                var parent = clickedElement.parentElement
@@ -174,6 +157,7 @@ function changeBorderAndBackground(event) {
           else if( clickedElement.className === "card col-md-3") {
               var noParent = clickedElement
               changing(noParent)
+
 
           }
             else { if (clickedElement.parentElement.className === "card col-md-3 clicked-card" || clickedElement.className === "card col-md-3 clicked-card") {
@@ -186,14 +170,15 @@ function changeBorderAndBackground(event) {
  }
 
 
-// console.log("line 186",selectTheseCards)
+// adding click event listener to each div
 function loopTheCards(selectTheseCards) {
 
   // console.log("line 191:", selectTheseCards)
 for(var i =0; i < selectTheseCards.length;  i++) {
 
-      selectTheseCards[i].addEventListener('click',changeBorderAndBackground(event))
-console.log(event)
+      selectTheseCards[i].addEventListener('click',changeBorderAndBackground)
+
+// console.log(event)
 
     }
   }
@@ -212,7 +197,7 @@ document.getElementById('putTheCardHere').innerHTML = builtHTMLFromPopulatePage
 
 // load up array of  created divs
     selectTheseCards = document.querySelectorAll('.card')
-    console.log(selectTheseCards)
+    // console.log(selectTheseCards)
     loopTheCards(selectTheseCards)
 
     }
