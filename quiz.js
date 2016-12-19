@@ -22,18 +22,18 @@ loadInventory();
 function changing(element, color) {
     element.classList.add("clicked-card")
     element.classList.add("clicked-card")
-      document.getElementById("typingTextHere").focus()
+    document.getElementById("typingTextHere").focus()
 
-       // whenToStartTyping(element)
+       whenToStartTyping(element)
 
 }
 
 
       function resetStyleOnClick (clickedElement) {
         for(var i =0; i < selectTheseCards.length;  i++) {
-   selectTheseCards[i].classList.remove("clicked-card")
-  }
-}
+          selectTheseCards[i].classList.remove("clicked-card")
+        }
+      }
 
 // changing the text in  description function
 //
@@ -46,44 +46,38 @@ function changing(element, color) {
 
  // }
 var parent  = ""
-
-// if (global variable != "") {
-//   when click
-//   set div to global variable
-// }
-
-// -----------------------------------------------------------------------
-// put a function to hold the timing of this event. for when a card is clicked
-
- var thisIsTheEditText ="";
+var thisIsTheEditText ="";
 // this function is only called inside click event to prevent typing editing when no element selected
 
-
- // function whenToStartTyping(elementINeed) {
+function whenToStartTyping(parent) {
 // resetStyleOnClick()
 document.getElementById("typingTextHere").addEventListener('keyup', function editTheDescription(event){
-  if(parent === "") {
-    return
-  }
-else if (event.code === "Enter" )
- {
-    return false;
-  }
-  else if (event.code === "Backspace" ) {
-   thisIsTheEditText = thisIsTheEditText.substring(0, thisIsTheEditText.length -1)
+ parent.querySelector('.card-text').innerHTML += ""
+
+            if(parent === "") {
+              return
+            }
+         else if (event.code === "Enter" ) {
+              return false;
+          }
+        else if (event.code === "Backspace" ) {
+             thisIsTheEditText = thisIsTheEditText.substring(0, thisIsTheEditText.length -1)
 
 
-  }
-  else{
-          thisIsTheEditText = event.key;
-          // console.log(elementINeed)
-      // parent.querySelector('.card-text').innerHTML = "" NEED TO RESET HTML TEXT
-     parent.querySelector('.card-text').innerHTML += ""
-      parent.querySelector('.card-text').innerHTML = thisIsTheEditText //-------> sending new text to descriptio
+            }
+            else {
 
-        }
+                    thisIsTheEditText = event.key;
+                    // console.log(elementINeed)
+                // parent.querySelector('.card-text').innerHTML = "" NEED TO RESET HTML TEXT
+                parent.querySelector('.card-text').innerHTML += ""
+                parent.querySelector('.card-text').innerHTML += thisIsTheEditText
+
+            }
  })
-    // }
+    }
+
+
 
 // THis will put content into html once  html is built up through loop
 //
@@ -109,6 +103,7 @@ function populatePage (changethisname) {
     } //-------------endforloop
 
           sendToTheDom(createTheCard)
+
 }
 
 // =================================// this selects the card and changes the color====================================================
@@ -146,9 +141,6 @@ function loopTheCards(selectTheseCards) {
 for(var i =0; i < selectTheseCards.length;  i++) {
 
       selectTheseCards[i].addEventListener('click',changeBorderAndBackground)
-
-// console.log(event)
-
     }
   }
 
