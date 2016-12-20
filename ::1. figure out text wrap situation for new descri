@@ -1,0 +1,9 @@
+
+2. clicking event still not selecting only container
+3. remove event listener
+
+think about when to fire the keypress
+ add if statement to make sure div is selected.
+
+
+ when clicking the first element is the only one typing happens in
